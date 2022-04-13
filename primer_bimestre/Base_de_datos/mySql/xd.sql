@@ -1,0 +1,11 @@
+CREATE SCHEMA universo_lector;
+
+CREATE TABLE socio (
+	id INT NOT NULL AUTO_INCREMENT,
+    DNI INT NOT NULL,
+    Apellido VARCHAR (100) NOT NULL,
+    Nombres VARCHAR (100) NOT NULL,
+    Direccion VARCHAR (100) NOT NULL,
+    Localidad VARCHAR (100) NOT NULL,
+    PRIMARY KEY (id)
+);

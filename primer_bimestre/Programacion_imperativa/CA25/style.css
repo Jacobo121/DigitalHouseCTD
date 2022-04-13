@@ -1,0 +1,117 @@
+/* producto destacado */
+html {
+    font-family: sans-serif;
+    --color-principal: rgba(34, 135, 224);
+    --color-secundario: rgb(237, 237, 237);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 960px;
+    padding: 0 20px;
+    margin:auto;
+}
+h1  {
+    padding: 10px
+ }
+header {
+    line-height:50px;
+    margin-bottom: 20px;
+}
+#productoDestacado {
+    display: flex;
+}
+
+#productoDestacado h2 {
+    padding-bottom: 15px;
+}
+#productoDestacado img {
+    width: 100%;
+    height: auto;
+}
+#productoDestacado a {
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: var(--color-principal);
+    color: var(--color-secundario);
+    font-size: 12px;
+}
+#productoDestacado p {
+    line-height: 20px;
+}
+#productoDestacado div {
+
+    box-sizing: border-box;
+}
+#productoDestacado  .izq {
+    width: 60%;
+}
+#productoDestacado .der {
+    width: 40%;
+    padding-left: 25px;
+}
+
+#productoDestacado button {
+    display: block;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 14px;
+    border: none;
+    margin:10px auto 10px;
+    color: var(--color-principal);
+    background-color: white;
+}
+footer {
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: var(--color-secundario);
+}
+form {
+    font-size: 12px;
+}
+form input {
+    padding: 3px;
+}
+form button {
+    background-color: var(--color-principal);
+    padding: 5px;
+    border: none;
+    color: var(--color-secundario);
+}
+
+/* clases para aplicar mediante DOM */
+
+/* imagen destacada */
+.destacarImagen {
+    padding: 5px;
+    border: solid 1px darkgray
+}
+
+.precio {
+    display: block;
+    padding: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mostrarse { 
+    display: block;
+}
+table {
+    border-collapse: collapse;
+    font-size: 12px;
+    display: none;
+}
+table td {
+    border: solid 1px;
+    padding: 5px;
+    width: 50%;
+}
