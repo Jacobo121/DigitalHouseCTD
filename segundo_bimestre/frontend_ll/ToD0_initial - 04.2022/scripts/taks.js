@@ -9,11 +9,11 @@ if (!localStorage.jwt) {
 window.addEventListener('load', function () {
 
   /* ---------------- variables globales y llamado a funciones ---------------- */
-  const form = document.querySelector('form');
+  const formCrearTarea = document.querySelector('form');
   const nuevaTarea = document.querySelector('#nuevaTarea');
   const btnCerrarSesion = document.querySelector("#closeApp");
 
-  const urlBase = 'https://ctd-todo-api.herokuapp.com/v1/task';
+  const urlBase = 'https://ctd-todo-api.herokuapp.com/v1/tasks';
   const urlUsuario = 'https://ctd-todo-api.herokuapp.com/v1/users/getMe';
 
   const token = JSON.parse(localStorage.jwt);
@@ -72,9 +72,10 @@ window.addEventListener('load', function () {
     fetch(urlBase, settings) 
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         renderizarTareas(data);
         botonBorrarTarea();
-        botonesCambioEstado();
+        botonesCambioEstado(data);
       })
       .catch(err => console.log(err));
     
@@ -92,8 +93,7 @@ window.addEventListener('load', function () {
     event.preventDefault();
     
     const tarea = {
-      description: nuevaTarea.value.trim(),
-      completed: false
+      description: nuevaTarea.value.trim()
     }
 
     const settings = {
@@ -108,6 +108,7 @@ window.addEventListener('load', function () {
     fetch(urlBase, settings)
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         consultarTareas()
       })
       .catch(err => console.log(err))
@@ -128,46 +129,51 @@ window.addEventListener('load', function () {
     tareasPendientes.innerHTML = "";
     tareaTerminada.innerHTML = "";
 
-    listado.foreach(tarea => {
+    listado.forEach(tarea => {
       if(tarea.completed) {
-        tareaTerminada.innerHTML = `
+        tareaTerminada.innerHTML += `
         <li class="tarea">
           <div class="tareas-hechas">
           </div>
           <div class="descripcion">
             <p class="nombre-tarea">${tarea.description}</p>
             <div class="cambios-estados">
-              <button class="cambiar incompleta" id="${tarea.id}" >
-              <button class="borrar" id="${tarea.id}">
+              <button class="change " id="${tarea.id}" >Tarea finalizada</button>
+              <button class="borrar" id="${tarea.id}">Eliminar</button>
             </div>
           </div>
         </li>
         `;
       } else {
-        tareasPendientes.innerHTML = `
+        tareasPendientes.innerHTML += `
         <li class="tarea">
-          <div class="tareas-hechas">
-          </div>
-          <div class="descripcion">
-            <p class="nombre-tarea">${tarea.description}</p>
-            <div class="cambios-estados">
-              <button class="cambiar terminada" id="${tarea.id}" >
-              <button class="borrar" id="${tarea.id}">
+            <div class="tareas-hechas">
             </div>
-          </div>
-        </li>
+            <div class="descripcion">
+              <p class="nombre">${tarea.description}</p>
+              <div class="cambios-estados">
+                <button class="change " id="${tarea.id}" >Tarea finalizada</button>
+                <button class="borrar" id="${tarea.id}">Eliminar</button>
+              </div>
+            </div>
+          </li>
         `;
       }
     })
-
   };
 
   /* -------------------------------------------------------------------------- */
   /*                  FUNCIÓN 6 - Cambiar estado de tarea [PUT]                 */
   /* -------------------------------------------------------------------------- */
-  function botonesCambioEstado() {
-    
-    
+  function botonesCambioEstado(tarea) {
+    const cambiarEstado = document.querySelector('.cambios-estados');
+    console.log(cambiarEstado);
+
+    cambiarEstado.addEventListener('click', (event) => {
+      tarea.map((tarea) => {
+        console.log(tarea.id)
+      })
+    })
 
 
 
