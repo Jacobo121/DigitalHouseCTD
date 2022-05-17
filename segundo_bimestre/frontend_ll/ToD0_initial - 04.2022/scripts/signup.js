@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
     const inputPassword = document.querySelector('#inputPassword');
     const inputPasswordRepetida = document.querySelector('#inputPasswordRepetida');
 
-    const urlBase = 'https://ctd-todo-api.herokuapp.com/v1'
+    const urlBase = 'https://ctd-fe2-todo.herokuapp.com/v1'
 
     /* -------------------------------------------------------------------------- */
     /*            FUNCIÓN 1: Escuchamos el submit y preparamos el envío           */
