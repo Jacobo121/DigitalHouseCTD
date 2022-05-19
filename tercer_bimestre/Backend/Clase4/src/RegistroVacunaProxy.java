@@ -12,6 +12,6 @@ public class RegistroVacunaProxy implements Registro{
     }
 
     public boolean comprobarFecha(Date fecha) {
-        return fecha.after(new Date());
+        return fecha.before(new Date());
     }
 }
